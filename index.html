@@ -5,411 +5,335 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chris Blackbird</title>
     <meta name="description" content="Analyst. Artist. Wanderer. Based in Poland.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg-secondary: rgba(88, 70, 100, 0.3);
-            --color-text-primary: #e8e6ea;
-            --color-text-secondary: #b4adb8;
-            --color-accent: #8b7d96;
-            --radius-lg: 24px;
-            --radius-full: 50%;
+            --bg: #0c0c0c;
+            --bg-card: #141414;
+            --text: #e8e4dc;
+            --text-muted: #6b6660;
+            --accent: #c9a84c;
+            --border: rgba(255, 255, 255, 0.07);
+            --border-accent: rgba(201, 168, 76, 0.25);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(139, 125, 150, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 125, 150, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(139, 125, 150, 0.02) 0%, transparent 40%),
-                linear-gradient(135deg, #2d1b3d 0%, #1a1625 50%, #2a1a36 100%);
-            background-attachment: fixed;
-            color: var(--color-text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 40px 20px;
+            padding: 64px 20px 96px;
             line-height: 1.6;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image:
-                repeating-linear-gradient(0deg, rgba(255,255,255,0.01) 0px, transparent 1px, transparent 2px, rgba(255,255,255,0.01) 3px),
-                repeating-linear-gradient(90deg, rgba(255,255,255,0.01) 0px, transparent 1px, transparent 2px, rgba(255,255,255,0.01) 3px);
-            pointer-events: none;
-            z-index: 0;
-        }
-
         .container {
-            max-width: 1100px;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
+            max-width: 680px;
+            margin: 0 auto;
         }
 
-        /* ── Main card ── */
-        .card {
-            background: var(--color-bg-secondary);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: var(--radius-lg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            overflow: hidden;
-        }
-
-        .profile-section {
-            padding: 60px 40px;
+        /* ── Header ── */
+        .header {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            text-align: center;
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 28px;
+            margin-bottom: 52px;
         }
 
-        .profile-image {
-            width: 160px;
-            height: 160px;
-            border-radius: var(--radius-full);
-            margin-bottom: 24px;
-            border: 3px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        .profile-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
             object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid var(--border-accent);
         }
 
-        .profile-name {
-            font-size: 32px;
+        .header-text h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 42px;
             font-weight: 600;
             letter-spacing: -0.5px;
+            line-height: 1.1;
             margin-bottom: 8px;
         }
 
-        .profile-tagline {
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            color: var(--color-accent);
+        .tagline {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            color: var(--accent);
         }
 
-        .profile-bio {
-            font-size: 14px;
-            color: var(--color-text-secondary);
-            line-height: 1.7;
-            margin-bottom: 32px;
+        /* ── Divider ── */
+        hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 44px 0;
         }
 
-        .social-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
+        /* ── Section ── */
+        .section { margin-bottom: 44px; }
+        .section:last-child { margin-bottom: 0; }
+
+        .section-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 18px;
         }
 
-        .social-link {
-            width: 44px;
-            height: 44px;
-            border-radius: var(--radius-full);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-text-primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
+        /* ── About ── */
+        .about-text {
+            font-size: 16px;
+            color: rgba(232, 228, 220, 0.75);
+            line-height: 1.9;
         }
 
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .social-link svg { width: 20px; height: 20px; }
-
-        .content-section {
-            padding: 60px 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .service-block { margin-bottom: 44px; }
-        .service-block:last-child { margin-bottom: 0; }
-
-        .service-title {
-            font-size: 26px;
-            font-weight: 600;
-            margin-bottom: 14px;
-            letter-spacing: -0.5px;
-        }
-
-        .service-description {
-            font-size: 15px;
-            color: var(--color-text-secondary);
-            line-height: 1.8;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 13px 24px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            color: var(--color-text-primary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            margin-top: 18px;
-        }
-
-        .cta-button:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-        }
-
-        /* ── Sections row ── */
-        .sections-row {
+        /* ── Cards ── */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .section-col {
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: 1fr 1fr;
             gap: 14px;
         }
 
-        .section-heading {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-            padding-left: 2px;
-        }
-
         .content-card {
-            background: var(--color-bg-secondary);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             overflow: hidden;
             text-decoration: none;
-            color: var(--color-text-primary);
-            transition: all 0.3s ease;
+            color: var(--text);
+            transition: border-color 0.25s, transform 0.25s;
             display: flex;
             flex-direction: column;
-            flex: 1;
         }
 
         .content-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+            border-color: var(--border-accent);
+            transform: translateY(-3px);
         }
 
-        .content-thumbnail {
+        .card-thumb {
             width: 100%;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 16 / 10;
             object-fit: cover;
             object-position: top;
             display: block;
-            background: rgba(255, 255, 255, 0.03);
+            background: #1a1a1a;
         }
 
-        .content-info {
-            padding: 16px 18px;
+        .card-body {
+            padding: 14px 16px;
             display: flex;
             flex-direction: column;
             gap: 4px;
         }
 
-        .content-title {
-            font-size: 15px;
-            font-weight: 600;
+        .card-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
         }
 
-        .content-desc {
-            font-size: 13px;
-            color: var(--color-text-secondary);
+        .card-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 16px;
+        }
+
+        .card-desc {
+            font-size: 12px;
+            color: var(--text-muted);
             line-height: 1.5;
         }
 
-        .content-url {
-            font-size: 12px;
-            color: var(--color-accent);
-            margin-top: 4px;
+        /* ── Work link ── */
+        .work-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
         }
+
+        .work-link:hover { color: var(--accent); }
+
+        .work-arrow {
+            color: var(--accent);
+            font-size: 18px;
+            line-height: 1;
+            transition: transform 0.2s;
+        }
+
+        .work-link:hover .work-arrow { transform: translateX(4px); }
+
+        .work-sub {
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* ── Games ── */
+        .games-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+
+        /* ── Social links ── */
+        .social-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            color: var(--text);
+            border-color: var(--border-accent);
+            background: rgba(201, 168, 76, 0.05);
+        }
+
+        .social-link svg { width: 17px; height: 17px; }
 
         /* ── Responsive ── */
-        @media (max-width: 968px) {
-            .card { grid-template-columns: 1fr; }
-            .profile-section {
-                border-right: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                padding: 40px 30px;
-            }
-            .content-section { padding: 40px 30px; }
-            .profile-image { width: 140px; height: 140px; }
-            .profile-name { font-size: 28px; }
-            .service-title { font-size: 22px; }
-            .sections-row { grid-template-columns: 1fr; gap: 32px; }
-        }
-
-        @media (max-width: 640px) {
-            body { padding: 20px 15px; }
-            .profile-section, .content-section { padding: 30px 25px; }
-            .profile-name { font-size: 24px; }
-            .service-description { font-size: 14px; }
+        @media (max-width: 520px) {
+            body { padding: 40px 16px 64px; }
+            .header { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .header-text h1 { font-size: 34px; }
+            .cards-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="container">
 
-        <div class="card">
-            <div class="profile-section">
-                <img src="40c36850a6b12e27937fa324b3299e3a.jpeg" alt="Chris Blackbird" class="profile-image">
-                <h1 class="profile-name">Chris Blackbird</h1>
-                <p class="profile-tagline">Analyst &middot; Artist &middot; Wanderer</p>
-                <p class="profile-bio">Latvian by origin. 3 countries called home, 18 visited — from the USA to Japan. Currently based in Poland.</p>
-
-                <div class="social-links">
-                    <!-- Discord -->
-                    <a href="https://discord.com/users/330425781874589698" class="social-link" aria-label="Discord" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-                        </svg>
-                    </a>
-                    <!-- WhatsApp -->
-                    <a href="https://wa.link/txqup4" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-                        </svg>
-                    </a>
-                    <!-- SoundCloud -->
-                    <a href="https://soundcloud.com/chrisblackbird" class="social-link" aria-label="SoundCloud" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M1.175 12.225C.526 12.225 0 11.699 0 11.05c0-.648.526-1.175 1.175-1.175h.044C1.17 9.72 1.162 9.563 1.162 9.4c0-2.67 2.162-4.837 4.838-4.837.46 0 .906.065 1.329.186C7.965 3.308 9.613 2.25 11.5 2.25c2.899 0 5.25 2.351 5.25 5.25 0 .21-.013.418-.038.622.16-.022.324-.034.488-.034 1.875 0 3.4 1.524 3.4 3.4 0 1.875-1.525 3.4-3.4 3.4H1.175v-.663z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/blackbird993" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/chris.99993/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <!-- Email -->
-                    <a href="mailto:chris@blackbird.im" class="social-link" aria-label="Email">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="5" width="18" height="14" rx="2"/>
-                            <path d="M3 7l9 6 9-6"/>
-                        </svg>
-                    </a>
-                </div>
+        <header class="header">
+            <img src="40c36850a6b12e27937fa324b3299e3a.jpeg" alt="Chris Blackbird" class="profile-photo">
+            <div class="header-text">
+                <h1>Chris Blackbird</h1>
+                <p class="tagline">Analyst &middot; Artist &middot; Wanderer</p>
             </div>
+        </header>
 
-            <div class="content-section">
-                <div class="service-block">
-                    <h2 class="service-title">About</h2>
-                    <p class="service-description">
-                        Nine years working across supply chain, analytics, and financial reporting — turning large volumes of data into things people can actually use. The rest of the time I make music, write poetry, and collect passport stamps. Three countries have been home; eighteen have been explored — from the USA to Japan — with more on the list.
-                    </p>
-                </div>
+        <section class="section">
+            <p class="section-label">About</p>
+            <p class="about-text">
+                Nine years working across supply chain, analytics, and financial reporting — turning large volumes of data into things people can actually use. The rest of the time I make music, write poetry, and collect passport stamps. Three countries have been home; eighteen have been explored — from the USA to Japan — with more on the list.
+            </p>
+        </section>
 
-                <div class="service-block">
-                    <h2 class="service-title">When Offline</h2>
-                    <p class="service-description">
-                        Strategy games scratch a different kind of analytical itch. Politics and War and Torn are where I end up when stepping away from spreadsheets. If you play either, you know.
-                    </p>
-                    <a href="mailto:chris@blackbird.im" class="cta-button">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="5" width="18" height="14" rx="2"/>
-                            <path d="M3 7l9 6 9-6"/>
-                        </svg>
-                        Get in touch
-                    </a>
-                </div>
-            </div>
-        </div>
+        <hr>
 
-        <!-- Writing / Music / Work -->
-        <div class="sections-row">
-            <div class="section-col">
-                <p class="section-heading">Writing</p>
+        <section class="section">
+            <div class="cards-grid">
                 <a href="https://blog.kriss.lv" class="content-card" target="_blank" rel="noopener">
                     <img
                         src="https://image.thum.io/get/width/700/crop/450/https://blog.kriss.lv"
-                        alt="blog.kriss.lv screenshot"
-                        class="content-thumbnail"
+                        alt="blog.kriss.lv"
+                        class="card-thumb"
                         loading="lazy"
                     >
-                    <div class="content-info">
-                        <span class="content-title">Poetry &amp; Thoughts</span>
-                        <span class="content-desc">Written in Latvian — English coming some day.</span>
-                        <span class="content-url">blog.kriss.lv</span>
+                    <div class="card-body">
+                        <span class="card-label">Writing</span>
+                        <span class="card-title">Poetry &amp; Thoughts</span>
+                        <span class="card-desc">In Latvian — English someday.</span>
                     </div>
                 </a>
-            </div>
-
-            <div class="section-col">
-                <p class="section-heading">Music</p>
                 <a href="https://soundcloud.com/chrisblackbird" class="content-card" target="_blank" rel="noopener">
                     <img
                         src="sc.png"
-                        alt="SoundCloud profile screenshot"
-                        class="content-thumbnail"
+                        alt="SoundCloud"
+                        class="card-thumb"
                         loading="lazy"
                     >
-                    <div class="content-info">
-                        <span class="content-title">SoundCloud</span>
-                        <span class="content-desc">3 published pieces.</span>
-                        <span class="content-url">soundcloud.com/chrisblackbird</span>
+                    <div class="card-body">
+                        <span class="card-label">Music</span>
+                        <span class="card-title">SoundCloud</span>
+                        <span class="card-desc">3 published pieces.</span>
                     </div>
                 </a>
             </div>
+        </section>
 
-            <div class="section-col">
-                <p class="section-heading">Work</p>
-                <a href="https://kristowyn.com" class="content-card" target="_blank" rel="noopener">
-                    <img
-                        src="https://kristowyn.com/preview.jpeg"
-                        alt="kristowyn.com screenshot"
-                        class="content-thumbnail"
-                        loading="lazy"
-                    >
-                    <div class="content-info">
-                        <span class="content-title">Kristowyn</span>
-                        <span class="content-desc">Web development &amp; automation services.</span>
-                        <span class="content-url">kristowyn.com</span>
-                    </div>
+        <hr>
+
+        <section class="section">
+            <p class="section-label">Work</p>
+            <a href="https://kristowyn.com" class="work-link" target="_blank" rel="noopener">
+                <span>kristowyn.com</span>
+                <span class="work-arrow">→</span>
+            </a>
+            <span class="work-sub">Web development &amp; automation services.</span>
+        </section>
+
+        <section class="section">
+            <p class="section-label">When offline</p>
+            <p class="games-text">Strategy games scratch a different kind of analytical itch. Politics and War and Torn are where I end up when stepping away from spreadsheets.</p>
+        </section>
+
+        <hr>
+
+        <section class="section">
+            <p class="section-label">Find me</p>
+            <div class="social-links">
+                <a href="https://discord.com/users/330425781874589698" class="social-link" aria-label="Discord" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                </a>
+                <a href="https://wa.link/txqup4" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                    </svg>
+                </a>
+                <a href="https://soundcloud.com/chrisblackbird" class="social-link" aria-label="SoundCloud" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M1.175 12.225C.526 12.225 0 11.699 0 11.05c0-.648.526-1.175 1.175-1.175h.044C1.17 9.72 1.162 9.563 1.162 9.4c0-2.67 2.162-4.837 4.838-4.837.46 0 .906.065 1.329.186C7.965 3.308 9.613 2.25 11.5 2.25c2.899 0 5.25 2.351 5.25 5.25 0 .21-.013.418-.038.622.16-.022.324-.034.488-.034 1.875 0 3.4 1.524 3.4 3.4 0 1.875-1.525 3.4-3.4 3.4H1.175v-.663z"/>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/blackbird993" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/chris.99993/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="mailto:chris@blackbird.im" class="social-link" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="5" width="18" height="14" rx="2"/>
+                        <path d="M3 7l9 6 9-6"/>
+                    </svg>
                 </a>
             </div>
-        </div>
+        </section>
 
     </div>
 </body>
