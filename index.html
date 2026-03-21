@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chris Blackbird - Full-Stack Developer</title>
-    <meta name="description" content="Full-stack web developer specializing in WordPress, custom applications, and business automation.">
+    <title>Chris Blackbird</title>
+    <meta name="description" content="Analyst. Artist. Wanderer. Based in Poland.">
     <style>
         :root {
-            --color-bg-primary: #1a1625;
             --color-bg-secondary: rgba(88, 70, 100, 0.3);
             --color-text-primary: #e8e6ea;
             --color-text-secondary: #b4adb8;
@@ -16,15 +15,11 @@
             --radius-full: 50%;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background: 
+            background:
                 radial-gradient(circle at 20% 50%, rgba(139, 125, 150, 0.03) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(139, 125, 150, 0.03) 0%, transparent 50%),
                 radial-gradient(circle at 40% 20%, rgba(139, 125, 150, 0.02) 0%, transparent 40%),
@@ -33,34 +28,19 @@
             color: var(--color-text-primary);
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            padding: 20px;
+            padding: 40px 20px;
             line-height: 1.6;
         }
 
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                repeating-linear-gradient(
-                    0deg,
-                    rgba(255, 255, 255, 0.01) 0px,
-                    transparent 1px,
-                    transparent 2px,
-                    rgba(255, 255, 255, 0.01) 3px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    rgba(255, 255, 255, 0.01) 0px,
-                    transparent 1px,
-                    transparent 2px,
-                    rgba(255, 255, 255, 0.01) 3px
-                );
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image:
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.01) 0px, transparent 1px, transparent 2px, rgba(255,255,255,0.01) 3px),
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.01) 0px, transparent 1px, transparent 2px, rgba(255,255,255,0.01) 3px);
             pointer-events: none;
             z-index: 0;
         }
@@ -70,8 +50,12 @@
             width: 100%;
             position: relative;
             z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
+        /* ── Main card ── */
         .card {
             background: var(--color-bg-secondary);
             backdrop-filter: blur(20px);
@@ -97,40 +81,45 @@
             width: 160px;
             height: 160px;
             border-radius: var(--radius-full);
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             border: 3px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
         }
 
         .profile-name {
             font-size: 32px;
             font-weight: 600;
-            margin-bottom: 20px;
             letter-spacing: -0.5px;
-        }
-
-        .profile-bio {
-            font-size: 15px;
-            color: var(--color-text-secondary);
-            line-height: 1.7;
-            margin-bottom: 30px;
+            margin-bottom: 8px;
         }
 
         .profile-tagline {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .profile-bio {
             font-size: 14px;
             color: var(--color-text-secondary);
-            margin-bottom: 40px;
-            font-weight: 500;
+            line-height: 1.7;
+            margin-bottom: 32px;
         }
 
         .social-links {
             display: flex;
-            gap: 16px;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .social-link {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: var(--radius-full);
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -148,10 +137,7 @@
             transform: translateY(-2px);
         }
 
-        .social-link svg {
-            width: 22px;
-            height: 22px;
-        }
+        .social-link svg { width: 20px; height: 20px; }
 
         .content-section {
             padding: 60px 50px;
@@ -160,18 +146,13 @@
             justify-content: center;
         }
 
-        .service-block {
-            margin-bottom: 50px;
-        }
-
-        .service-block:last-child {
-            margin-bottom: 0;
-        }
+        .service-block { margin-bottom: 44px; }
+        .service-block:last-child { margin-bottom: 0; }
 
         .service-title {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             letter-spacing: -0.5px;
         }
 
@@ -185,16 +166,16 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 28px;
+            padding: 13px 24px;
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px;
             color: var(--color-text-primary);
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-top: 18px;
         }
 
         .cta-button:hover {
@@ -203,86 +184,148 @@
             transform: translateY(-2px);
         }
 
-        @media (max-width: 968px) {
-            .card {
-                grid-template-columns: 1fr;
-            }
+        /* ── Sections row ── */
+        .sections-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
 
+        .section-col {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .section-heading {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            padding-left: 2px;
+        }
+
+        .content-card {
+            background: var(--color-bg-secondary);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--color-text-primary);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+        }
+
+        .content-thumbnail {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .content-info {
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .content-title {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .content-desc {
+            font-size: 13px;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+        }
+
+        .content-url {
+            font-size: 12px;
+            color: var(--color-accent);
+            margin-top: 4px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 968px) {
+            .card { grid-template-columns: 1fr; }
             .profile-section {
                 border-right: none;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                 padding: 40px 30px;
             }
-
-            .content-section {
-                padding: 40px 30px;
-            }
-
-            .profile-image {
-                width: 140px;
-                height: 140px;
-            }
-
-            .profile-name {
-                font-size: 28px;
-            }
-
-            .service-title {
-                font-size: 24px;
-            }
+            .content-section { padding: 40px 30px; }
+            .profile-image { width: 140px; height: 140px; }
+            .profile-name { font-size: 28px; }
+            .service-title { font-size: 22px; }
+            .sections-row { grid-template-columns: 1fr; gap: 32px; }
         }
 
         @media (max-width: 640px) {
-            body {
-                padding: 15px;
-            }
-
-            .profile-section,
-            .content-section {
-                padding: 30px 25px;
-            }
-
-            .profile-name {
-                font-size: 24px;
-            }
-
-            .service-title {
-                font-size: 22px;
-            }
-
-            .service-description,
-            .profile-bio {
-                font-size: 14px;
-            }
+            body { padding: 20px 15px; }
+            .profile-section, .content-section { padding: 30px 25px; }
+            .profile-name { font-size: 24px; }
+            .service-description { font-size: 14px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
+
         <div class="card">
             <div class="profile-section">
-<img src="40c36850a6b12e27937fa324b3299e3a.jpeg" alt="Chris Blackbird" class="profile-image">
+                <img src="40c36850a6b12e27937fa324b3299e3a.jpeg" alt="Chris Blackbird" class="profile-image">
                 <h1 class="profile-name">Chris Blackbird</h1>
-                
-                <p class="profile-bio">
-                    I build custom websites, automate workflows, and develop tools that solve real problems. From WP platforms with email infrastructure to data-driven applications, I create the technical backbone businesses need to operate smoothly.
-                </p>
-
-                <p class="profile-tagline">
-                    Specializing in full-stack web development, database architecture, and business automation.
-                </p>
+                <p class="profile-tagline">Analyst &middot; Artist &middot; Wanderer</p>
+                <p class="profile-bio">Latvian by origin. 3 countries called home, 18 visited — from the USA to Japan. Currently based in Poland.</p>
 
                 <div class="social-links">
+                    <!-- Discord -->
                     <a href="https://discord.com/users/330425781874589698" class="social-link" aria-label="Discord" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
                         </svg>
                     </a>
+                    <!-- WhatsApp -->
                     <a href="https://wa.link/txqup4" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
                         </svg>
                     </a>
+                    <!-- SoundCloud -->
+                    <a href="https://soundcloud.com/chrisblackbird" class="social-link" aria-label="SoundCloud" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M1.175 12.225C.526 12.225 0 11.699 0 11.05c0-.648.526-1.175 1.175-1.175h.044C1.17 9.72 1.162 9.563 1.162 9.4c0-2.67 2.162-4.837 4.838-4.837.46 0 .906.065 1.329.186C7.965 3.308 9.613 2.25 11.5 2.25c2.899 0 5.25 2.351 5.25 5.25 0 .21-.013.418-.038.622.16-.022.324-.034.488-.034 1.875 0 3.4 1.524 3.4 3.4 0 1.875-1.525 3.4-3.4 3.4H1.175v-.663z"/>
+                        </svg>
+                    </a>
+                    <!-- Facebook — update href with your profile URL -->
+                    <a href="#" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <!-- Instagram — update href with your profile URL -->
+                    <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <!-- Email -->
                     <a href="mailto:chris@blackbird.im" class="social-link" aria-label="Email">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="5" width="18" height="14" rx="2"/>
@@ -294,26 +337,82 @@
 
             <div class="content-section">
                 <div class="service-block">
-                    <h2 class="service-title">Full-Stack Development</h2>
+                    <h2 class="service-title">About</h2>
                     <p class="service-description">
-                        Custom websites built from the ground up. Whether you need WordPress with managed hosting, or bespoke HTML/CSS/JavaScript applications, I build performant, scalable solutions with proper infrastructure—including dedicated email servers.
+                        I work in financial analysis by day. The rest of the time I make music, write poetry, and collect passport stamps. Three countries have been home; eighteen have been explored — from the USA to Japan — with more on the list.
                     </p>
                 </div>
 
                 <div class="service-block">
-                    <h2 class="service-title">Automation &amp; Integration</h2>
+                    <h2 class="service-title">When Offline</h2>
                     <p class="service-description">
-                        Complex workflows deserve elegant solutions. I design systems using Google Sheets APIs, SQL databases, and backend services that connect your tools and eliminate manual work. Every automation is built to scale with your business.
+                        Strategy games scratch a different kind of analytical itch. Politics and War and Torn are where I end up when stepping away from spreadsheets. If you play either, you know.
                     </p>
-                    <a href="https://linkedin.com/in/chrisblackbird" class="cta-button" target="_blank" rel="noopener">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    <a href="mailto:chris@blackbird.im" class="cta-button">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="5" width="18" height="14" rx="2"/>
+                            <path d="M3 7l9 6 9-6"/>
                         </svg>
-                        LinkedIn
+                        Get in touch
                     </a>
                 </div>
             </div>
         </div>
+
+        <!-- Writing / Music / Work -->
+        <div class="sections-row">
+            <div class="section-col">
+                <p class="section-heading">Writing</p>
+                <a href="https://blog.kriss.lv" class="content-card" target="_blank" rel="noopener">
+                    <img
+                        src="https://image.thum.io/get/width/700/crop/450/https://blog.kriss.lv"
+                        alt="blog.kriss.lv screenshot"
+                        class="content-thumbnail"
+                        loading="lazy"
+                    >
+                    <div class="content-info">
+                        <span class="content-title">Poetry &amp; Thoughts</span>
+                        <span class="content-desc">Written in Latvian — English coming some day.</span>
+                        <span class="content-url">blog.kriss.lv</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="section-col">
+                <p class="section-heading">Music</p>
+                <a href="https://soundcloud.com/chrisblackbird" class="content-card" target="_blank" rel="noopener">
+                    <img
+                        src="https://image.thum.io/get/width/700/crop/450/https://soundcloud.com/chrisblackbird"
+                        alt="SoundCloud profile screenshot"
+                        class="content-thumbnail"
+                        loading="lazy"
+                    >
+                    <div class="content-info">
+                        <span class="content-title">SoundCloud</span>
+                        <span class="content-desc">3 published pieces.</span>
+                        <span class="content-url">soundcloud.com/chrisblackbird</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="section-col">
+                <p class="section-heading">Work</p>
+                <a href="https://kristowyn.com" class="content-card" target="_blank" rel="noopener">
+                    <img
+                        src="https://image.thum.io/get/width/700/crop/450/https://kristowyn.com"
+                        alt="kristowyn.com screenshot"
+                        class="content-thumbnail"
+                        loading="lazy"
+                    >
+                    <div class="content-info">
+                        <span class="content-title">Kristowyn</span>
+                        <span class="content-desc">Web development &amp; automation services.</span>
+                        <span class="content-url">kristowyn.com</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
