@@ -175,7 +175,24 @@
         .tumblr-group {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
+            gap: 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .tumblr-group .card {
+            border-radius: 0;
+            border: none;
+            border-right: 1px solid var(--border);
+        }
+
+        .tumblr-group .card:last-child {
+            border-right: none;
+        }
+
+        .tumblr-group .thumb {
+            aspect-ratio: 3 / 4;
         }
 
         .map-header {
