@@ -193,7 +193,12 @@
 
         .tumblr-group .thumb {
             aspect-ratio: auto;
-            height: 263px;
+            height: 271px;
+        }
+
+        /* Offset title on cards without a cat label so it aligns with the first card */
+        .tumblr-group .card-body:not(:has(.cat)) {
+            padding-top: 21px;
         }
 
         .map-header {
